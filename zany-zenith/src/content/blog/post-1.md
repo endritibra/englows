@@ -5,7 +5,7 @@ description: "When it comes to choosing the right CMS, WordPress has long been t
 "
 author: "Endrit Ibraimi"
 image:
-  url: "/src/assets/mesh-gradient-3.png"
+  url: "/mesh-gradient-3.png"
   alt: "HubSpot Blog banner"
 tags: ["astro", "blog", "hubspot"]
 ---
