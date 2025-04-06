@@ -4,7 +4,7 @@ pubDate: 2025-04-06
 description: "This is my f2irst post using Astro content collections."
 author: "Endrit Ibraimi"
 image:
-  url: "mesh-gradient.png"
+  url: "/mesh-gradient.png"
   alt: "Test Blog Banner"
 tags: ["astro", "blog", "development"]
 ---

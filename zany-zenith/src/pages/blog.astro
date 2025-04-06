@@ -29,7 +29,7 @@ const tagsList = [...allTags];
 	<HeroBlog />
 	<div class="blog-container container">
 	<h1 style="text-align: center;">Articles</h1>
-	<ul style="display: flex; flex-direction: row;align-items: center; gap:2rem">
+	<ul class="blog-cards" style="display: flex; flex-direction: row;align-items: center; gap:2rem">
 		{posts.map((post) => (
 		  <li class="blog-card" style="max-width: 500px;">
 			<a href={`/blog/${post.slug}/`}>
@@ -54,5 +54,17 @@ const tagsList = [...allTags];
 <style>
 	.blog-card *{
 		padding:4px 0;
+	}
+	.blog-cards{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap:2rem;
+		flex-wrap: wrap;
+	}
+	@media(max-width:792px){
+	  .blog-cards{
+		padding: 0 2rem;
+	  }
 	}
 </style>

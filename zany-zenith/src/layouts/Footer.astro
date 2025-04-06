@@ -3,8 +3,8 @@
 		<div class="footer-part-one footer-part">
 			<div class="footer-part__menu">
 				<ul>
-					<li>Home</li>
-					<li>Blog</li>
+					<a href="/" class="footer__links"><li>Home</li></a>
+					<a href="/blog" class="footer__links"><li>Blog</li></a>
 				</ul>
 			</div>
 			<div class="footer-part__btn">
@@ -60,6 +60,9 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+	}
+	.footer__links{
+		color: rgba(255, 255, 255, 0.8) !important;
 	}
 
 	@media (max-width: 792px) {
