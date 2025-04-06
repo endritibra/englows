@@ -1,15 +1,17 @@
 ---
 import hero from "../assets/hero-grad.png"
+const {title}=Astro.props;
+
 ---
 
 <section class="hero container spacing-section--3xl">
 	<div class="hero__first hero__part">
-		<h1 class="heading--xxl">englows</h1>
+		<h1 class="heading--xxl">{title}</h1>
 		<h2 style="font-weight: 300;">neat design / dev</h2>
 	</div>
 	<div class="hero__second hero__part">
-		<h1 class="stroked-text">englows</h1>
-		<h1 class="stroked-text">englows</h1>
+		<h1 class="stroked-text">{title}</h1>
+		<h1 class="stroked-text">{title}</h1>
 		<div class="hero__img">
 			<img src={hero.src} />
 		</div>

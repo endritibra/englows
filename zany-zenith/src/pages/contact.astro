@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import FooterCta from '../components/FooterCta.astro';
+import Grid from '../components/Grid.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+	<Hero title='contact'/>
+    <iframe class="basinIframe" src="https://usebasin.com/form/5feb4d8b5b28/view/ca1c0152a36c?iframe=true" frameborder="0" style="border: none; overflow: hidden;" onload="var self = this; self.contentWindow.postMessage('getHeight', '*'); setInterval(function() { self.contentWindow.postMessage('getHeight', '*'); }, 500);  window.addEventListener('message', function(event) { if (event.data.action === 'setHeight') { self.style.height = event.data.height + 'px'; } });" width="100%"></iframe>
+
+	<FooterCta />
+</Layout>
+
+
+<style>
+    .hero{
+        margin-bottom: 0 !important;
+    }
+</style>
+
+
+
