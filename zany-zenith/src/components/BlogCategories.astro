@@ -1,0 +1,49 @@
+---
+import servicesIcon from "../assets/serv.png";
+const { tags } = Astro.props;
+---
+
+<section class="spacing-section--5xl services" style=" ">
+	<div class="service-item">
+		<h2 class="container heading-xl font-bold">
+			categories<img class="service-item__img" src={servicesIcon.src} />
+		</h2>
+	</div>
+	 {tags.map((item)=>(
+	 <div class="service-item">
+		<h2 class="container heading-xl">{item}</h2>
+	</div>
+	 ))}
+	
+	
+</section>
+
+<style>
+	.services h2 {
+		padding: var(--spacing-md) 0;
+		font-weight: 200;
+	}
+	.service-item {
+		border-bottom: 1px solid black;
+	}
+	.service-item:first-child {
+		border-top: 1px solid black;
+	}
+	.service-item__img {
+		height: 2rem;
+		width: 2rem;
+		margin: 0 1rem;
+	}
+	.service-item:first-child h2 {
+		font-weight: 400 !important;
+	}
+
+	@media (max-width: 792px) {
+		.service-item h2 {
+			padding: 0 2rem !important;
+		}
+		.service-item {
+			padding: 0.75rem 0;
+		}
+	}
+</style>

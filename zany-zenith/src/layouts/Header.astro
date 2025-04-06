@@ -1,0 +1,59 @@
+---
+
+---
+
+<header>
+	<div class="header-container container">
+		<a href="/" class="">e.</a>
+		<div class="'header__right" style="margin-left:auto;">
+			<a href="/blog" style="margin-inline:1rem;">Blog</a>
+			<a class="btn btn-primary-outline" href="/form"
+				><span>Get a quote</span></a
+			>
+		</div>
+	</div>
+</header>
+
+<style>
+	header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100vw;
+		z-index: 9999;
+		transition: 300ms ease all;
+	}
+	.header-container {
+		display: flex;
+		padding-block: 1.5rem;
+		align-items: center;
+	}
+
+	.header-container > a {
+		font-size: 1.5rem;
+	}
+	.header--dark {
+		background-color: black;
+		transition: 300ms ease all;
+	}
+	.header--dark * {
+		color: white !important;
+	}
+	@media (max-width: 600px) {
+		header {
+			padding: 0 2rem;
+		}
+	}
+</style>
+
+<script is:inline>
+	window.addEventListener("scroll", function () {
+		let header = document.querySelector("header");
+		let scroll = window.scrollY;
+		if (scroll > 400) {
+			header.classList.add("header--dark");
+		} else {
+			header.classList.remove("header--dark");
+		}
+	});
+</script>

@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import { getCollection } from "astro:content";
+	
+import FooterCta from '../components/FooterCta.astro';
+import BlogCategories from '../components/BlogCategories.astro';
+import Grid from '../components/Grid.astro';
+import HeroBlog from '../components/HeroBlog.astro';
+
+// Fetch all blog posts
+const posts = await getCollection("blog");
+console.log(posts)
+// Collect all the tags used in blog posts
+const allTags = new Set();
+posts.forEach((post) => {
+  post.data.tags.forEach((tag) => {
+    allTags.add(tag); // Add each tag to a Set (duplicates are automatically removed)
+  });
+});
+
+const tagsList = [...allTags];
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="blog">
+	<HeroBlog />
+	<div class="blog-container container">
+	<h1 style="text-align: center;">Articles</h1>
+	<ul style="display: flex; flex-direction: row;align-items: center; gap:2rem">
+		{posts.map((post) => (
+		  <li class="blog-card" style="max-width: 500px;">
+			<a href={`/blog/${post.slug}/`}>
+			  <h3>{post.data.title}</h3>
+			</a>
+			<p>{post.data.description}</p>
+			<div class="card-img" style="max-width: 200px !important;">
+			<img src={post.data.image.url} />
+			</div>
+		  </li>
+		))}
+	  </ul>
+	</div>
+	<BlogCategories tags={tagsList} />
+	<Grid />
+	<FooterCta />
+
+</Layout>
+
+
+
+<style>
+	.blog-card *{
+		padding:4px 0;
+	}
+</style>

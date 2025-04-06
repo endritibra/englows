@@ -1,0 +1,70 @@
+<footer>
+	<div class="footer-container container">
+		<div class="footer-part-one footer-part">
+			<div class="footer-part__menu">
+				<ul>
+					<li>Home</li>
+					<li>Blog</li>
+				</ul>
+			</div>
+			<div class="footer-part__btn">
+				<a class="btn btn-primary-outline" href="/form"
+					><span>Get a quote</span></a
+				>
+			</div>
+		</div>
+
+		<div class="footer-part-two footer-part">
+			<h2 class="heading--xxl">englows</h2>
+			<p class="">the agency</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	footer {
+		position: sticky; /*sticky*/
+		position: -webkit-sticky;
+		bottom: 0;
+		z-index: -1;
+		background-color: black;
+		color: white;
+		padding: 5px 0;
+		text-align: center;
+		width: 100vw !important;
+		transition: 200ms ease all;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		padding: 5rem 0;
+	}
+
+	.footer-part {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100% !important;
+		align-items: center;
+	}
+
+	footer ul {
+		list-style-type: none;
+		text-align: left;
+		color: var(--clr-dark-opc);
+	}
+	footer .btn-primary-outline > span {
+		color: white;
+	}
+	.footer-part-two {
+		padding-top: 6rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	@media (max-width: 792px) {
+		footer {
+			padding-inline: 2rem !important;
+		}
+	}
+</style>

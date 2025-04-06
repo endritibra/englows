@@ -1,0 +1,45 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BlogLayout from "../../layouts/Layout.astro";
+
+// Get all the paths at build time
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+// Get the post passed as a prop
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+
+    <BlogLayout
+      title={post.data.title}
+      description={post.data.description}
+      author={post.data.author}
+      imageUrl={post.data.image.url}
+      imageAlt={post.data.image.alt}
+    >
+      <article class="blog-post spacing-section--4xl container" >
+
+        <div class="blog-hero" style="display: flex; flex-direction: row; padding:2rem 0;gap:3rem;">
+            <div class="img-container" style="max-width: 400px;">
+            <img src={post.data.image.url} alt={post.data.image.alt} />
+            </div>
+            <div class="blog-hero-content" style="display: flex; flex-direction:column;">
+            <h1 class="heading-xl">{post.data.title}</h1>
+            <p>{post.data.description}</p>
+            </div>
+
+        </div>
+        <p><em>By {post.data.author} on {post.data.pubDate.toDateString()}</em></p>
+        <div class="blog-content" style="padding:4rem 0;">
+        <Content />
+    </div>
+   
+      </article>
+    </BlogLayout>
