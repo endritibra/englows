@@ -26,7 +26,7 @@ const { Content } = await post.render();
     >
       <article class="blog-post spacing-section--4xl container" >
 
-        <div class="blog-hero" style="display: flex; flex-direction: row; padding:2rem 0;gap:3rem;">
+        <div class="blog-hero">
             <div class="img-container" style="max-width: 400px;">
             <img src={post.data.image.url} alt={post.data.image.alt} />
             </div>
@@ -43,3 +43,33 @@ const { Content } = await post.render();
    
       </article>
     </BlogLayout>
+
+
+    <style>
+      .blog-hero{
+        display: flex;
+        flex-direction: row; 
+        padding:2rem 0;
+        gap:3rem;
+      
+      }
+     
+      @media(max-width:792px){
+        .blog-post{
+          padding:0 2rem;
+
+        }
+        .blog-hero{
+          flex-wrap: wrap;
+        }
+        .img-container{
+          height: 250px;
+          width: 100%;
+        }
+        .img-container img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    </style>

@@ -24,8 +24,3 @@ While WordPress often requires developers to build and maintain features, HubSpo
 
 ## 🤝 Natively Connected to the HubSpot CRM  
 Unlike WordPress, where integrating with a CRM can be clunky or expensive, HubSpot CMS is deeply integrated with the HubSpot CRM—so every pageview, form submission, and CTA click is automatically tracked and usable for automation and personalization.
-
-
----
-
-
