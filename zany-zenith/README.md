@@ -1,6 +1,6 @@
 # My Project
 
-This is my awesome project.
+This is my portfolio project.
 
 ## How to Run
 
