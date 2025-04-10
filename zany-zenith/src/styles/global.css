@@ -254,4 +254,8 @@ main {
 }
 
 
-@media(max-width:600px) {}
+@media(max-width:600px) {
+  .btn {
+    font-size: .8rem;
+  }
+}
