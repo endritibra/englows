@@ -1,0 +1,192 @@
+---
+import servicesIcon from "../assets/serv.png";
+import brnstorm from "../assets/brn.jpg";
+import code from "../assets/code.jpg";
+import design from "../assets/des.jpg";
+import hubspot from "../assets/hubspot.webp";
+import mock from "../assets/mock.jpg";
+
+---
+
+<div class="container--efect spacing-section--5xl">
+
+	
+
+	<div class="link-container">
+		<div class="wrapper wrapper-text" >
+			<a href="" class="wrapper__link heading-xl title container"><span>services<img class="service-item__img" src={servicesIcon.src} /></span></a>
+		</div>
+	
+	<div class="link-container">
+		<div class="wrapper wrapper-text" data-active="1">
+			<a href="" class="wrapper__link heading-xl container">design ( 1 )</a>
+		</div>
+
+		<div class="wrapper wrapper-text" data-active="2">
+			<a href="" class="wrapper__link heading-xl container">development ( 2 )</a>
+		</div>
+
+		<div class="wrapper wrapper-text" data-active="3">
+			<a href="" class="wrapper__link heading-xl container">brainstorming ( 3 )</a>
+		</div>
+
+		<div class="wrapper wrapper-text" data-active="4">
+			<a href="" class="wrapper__link heading-xl container" >hubspot ( 4 )</a>
+		</div>
+	</div>
+
+	<div class="image-container">
+		<div class="wrapper wrapper-img" data-active="1">
+			<img
+				src={design.src}
+				alt=""
+			/>
+		</div>
+		<div class="wrapper wrapper-img" data-active="2">
+			<img
+				src={code.src}
+				alt=""
+			/>
+		</div>
+		<div class="wrapper wrapper-img" data-active="3">
+			<img
+				src={brnstorm.src}
+				alt=""
+			/>
+		</div>
+		<div class="wrapper wrapper-img" data-active="4">
+			<img
+				src={hubspot.src}
+				alt=""
+			/>
+		</div>
+	</div>
+</div>
+
+<style>
+	.container {
+		display: block;
+		position: relative;
+		height: auto;
+	}
+	
+	.wrapper {
+		width: 100%;
+	}
+	.wrapper__link {
+		text-decoration: none;
+		color: black;
+		font-weight: 200;
+	}
+	.wrapper-text {
+		border-bottom: 1px solid black;
+		padding: var(--spacing-md) 0;
+	}
+	.wrapper-text:last-child{
+		border-bottom: 0px !important;
+	}
+	h2:first-child {
+		border-block: 1px solid black;
+	}
+	.title{
+		font-weight: 400;
+	}
+	.wrapper-img {
+		max-width: 100%;
+		height: 100%;
+		transition: 200ms ease-out opacity;
+	}
+	img:not(.service-item__img){
+		max-width: 100%;
+		width: 100%;
+		height: 100% !important;
+		height: auto;
+		position: absolute;
+		object-fit: cover;
+		left: 0;
+		bottom: 50%;
+	}
+	.image-container {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 360px;
+		height: 270px;
+		will-change: transform, opacity;
+		pointer-events: none;
+		z-index: 999;
+		opacity: 0;
+		transition: 200ms ease-out all;
+	}
+	img:not(.service-item__img) {
+		opacity: 0;
+		transition: 200ms ease-out all;
+	}
+	.service-item__img {
+		height: 2rem;
+		width: 2rem;
+		margin: 0 1rem;
+	}
+	
+	@media (max-width: 792px) {
+		.wrapper {
+			padding: 1rem 2rem !important;
+		}
+		
+	}
+</style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		let container = document.querySelector(".link-container");
+		let imgContainer = document.querySelector(".image-container");
+
+		let textWrapper = document.querySelectorAll(".wrapper-text");
+		let imgWrapper = document.querySelectorAll(".wrapper-img");
+
+		let targetX = 0,
+			targetY = 0;
+		let currentX = 0,
+			currentY = 0;
+		let easing = 0.2;
+
+		function animate() {
+			currentX += (targetX - currentX) * easing;
+			currentY += (targetY - currentY) * easing;
+			imgContainer.style.transform = `translate(${currentX}px, ${currentY}px)`;
+			requestAnimationFrame(animate);
+		}
+
+		animate();
+		console.log(container);
+		textWrapper.forEach((text) => {
+			text.addEventListener("mousemove", (ev) => {
+				let textActive = text.getAttribute("data-active");
+
+				imgWrapper.forEach((imag) => {
+					let imgActive = imag.getAttribute("data-active");
+					let imi = imag.querySelector("img");
+
+					if (textActive === imgActive) {
+						let imageContainer = imag.closest(".image-container");
+						imageContainer.style.opacity = "1";
+						imi.style.opacity = "1";
+						targetX = ev.clientX;
+						targetY = ev.clientY;
+					} else {
+						imi.style.opacity = "0";
+					}
+				});
+			});
+		});
+		console.log(container);
+		container.addEventListener("mouseleave", () => {
+			imgWrapper.forEach((imag) => {
+				let imi = imag.querySelector("img");
+				imi.style.opacity = "0";
+			});
+
+			imgContainer.style.opacity = "0";
+		});
+	});
+</script>

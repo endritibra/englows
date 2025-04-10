@@ -5,6 +5,8 @@
   --clr-primary-lt: #67A546;
   --clr-primary-dk: #0C2200;
   --clr-dark-opc: rgba(255, 255, 255, 0.8);
+  --clr-dark-md-bg:black;
+  --clr-dark-md-txt:white;
   --fs-base: 16px;
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -18,6 +20,9 @@
   --br-radius: 6px;
   --ff-base: 'Inter';
   --ff-secondary: 'Space Grotesk';
+  --transition-base: 300ms ease all;
+
+ 
 }
 
 * {
@@ -33,6 +38,26 @@ body {
   position: relative;
   z-index: 10;
 }
+.dark body,.dark main,.dark .btn,.dark header, .dark header .header-container *:not(span),.dark .basinIframe{
+  background-color: var(--clr-dark-md-bg) !important;
+  color: var(--clr-dark-md-txt) !important;
+  /*transition: var(--transition-base);*/
+}
+.dark .wrapper__link, .dark .blog-card *{
+  color: white !important;
+}
+.dark .wrapper-text, .dark header,.dark .service-item {
+  border-bottom: 1px solid rgb(28, 28, 28) !important;
+}
+
+
+.dark header,.header--dark{
+ /* box-shadow: -4px 0px 0px 1px #222;
+  transition: var(--transition-base); */
+
+}
+
+
 
 .spacing-section--md {
   margin: var(--spacing-md) auto;
